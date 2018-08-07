@@ -5,9 +5,43 @@ function publish() {
 
 }
 
-// // Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-// 			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-// 			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-// 			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-// 			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-// 			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+var now = new Date();
+
+
+//hh:mm:ss
+
+var hh = formatTime(now.getHours());
+var mm = formatTime(now.getMinutes());
+var ss = formatTime(now.getSeconds());
+
+// if (ss <10) {
+// 	ss = "0" + ss;
+// }
+
+function formatTime(timeDenom) {
+	if (timeDenom < 10){
+		return "0" + timeDenom;
+	} else {
+		return timeDenom;
+	}
+}
+
+console.log( hh + ":" + mm + ":" + ss);
+
+var hpcharacters = [
+	{name: "Harry Potter",
+	score: 1
+	},
+	{name: "Snape",
+	score: 3
+	}, 
+	{name: "Ron",
+	score: 14
+	}];
+
+var characterDiv = document.getElementById("characters")
+
+function chooseChar() {
+	var randomNum = Math.floor(Math.random() * (hpcharacters.length -1 +1));
+	characterDiv.innerHTML = "<h1>" + hpcharacters[randomNum].name + "</h1>"
+}
